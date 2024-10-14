@@ -9,65 +9,60 @@
 
 <?php
 
-$welcome = "Oi";
-$name = 'Louco';
-$title = $welcome . ", Portfólio do " . $name;
-$subTitle = "seja bem-vindo";
-$yearNow = date("Y");
-
-$projects = [
-    (object) [
-        'name' => 'Portfólio',
-        'description' => 'Meu primeiro portfólio escrito em PHP',
-        'isFinished' => true,
-        'date' => 2024,
-    ],
-    (object) [
-        'name' => 'Site de Compras',
-        'description' => 'Um site para compra de produtos online',
-        'isFinished' => false,
-        'date' => 2023,
-    ],
-    (object) [
-        'name' => 'Blog Pessoal',
-        'description' => 'Um blog para compartilhar minhas ideias e projetos',
-        'isFinished' => true,
-        'date' => 2023,
-    ],
-];
-
-function verifyIsFinished($project) {
-    return $project->isFinished 
-        ? '<span style="color:green">finalizado</span>' 
-        : '<span style="color:red">não finalizado</span>';
-}
-
-$filteredProjects = array_filter($projects, function($project) {
-    return $project->date === 2023; 
-});
-
+  $welcome = "Oi";
+  $name = 'Louco';
+  $title = $welcome . ", Portifolio do " . $name;
+  $subTitle = "seja bem vindo";
+  $yearNow = date("Y");
+  $project = "portifolio";
+  $isFinished = true; 
+  $projectDate = date("d/m/Y H:i:s");
+  $description = "meu primeiro portifolio escrito em PHP"
 
 ?>
 
-<h1><?= $title ?></h1>
-<p><?php echo $subTitle; ?></p>
-<p><?php echo $yearNow; ?></p>
+<h1>
+<?php
+  echo $title;
+?>
+</h1>
+
+<p>
+<?php
+  echo $subTitle;
+?>
+</p>
+
+<p>
+<?php
+  echo $yearNow;
+?>
+</p>
 <hr>
+<div>
+    <h2><?=$project?></h2>
+    <p><?=$description?></p>
 
-<?php if (empty($filteredProjects)): ?>
-    <p>Não há projetos para mostrar.</p>
-<?php else: ?>
-    <?php foreach ($filteredProjects as $project): ?>
-        <div>
-            <h2><?php echo $project->name; ?></h2>
-            <p><?php echo $project->description; ?></p>
-            <div>
-                <div><?php echo $project->date; ?></div>
-                <div><?=verifyIsFinished($project); ?></div>
-            </div>
-        </div>
-    <?php endforeach; ?>
-<?php endif; ?>
 
+    <div
+
+    <?php if((2023 - $yearNow) > 2): ?>
+        style='background-color: burlywood;'
+    <?php endif   ?>
+    >
+      
+    <div><?= $projectDate ?></div>
+
+    <div>
+       <?php if($isFinished): ?>
+        <span>Finalizado ✅</span>
+       <?php else: ?>
+        <span>Em andamento ⏳</span>
+       <?php endif;?>
+     </div>
+
+    </div>
+</div>
+    
 </body>
 </html>
