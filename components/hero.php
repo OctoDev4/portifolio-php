@@ -1,3 +1,28 @@
+<?php
+
+$items = [
+    [
+        'href' => '',
+        'src' => 'assets/twitter.png',
+        'alt' => 'Twitter logo'
+    ],
+    [
+        'href' => '',
+        'src' => 'assets/facebook.png',
+        'alt' => 'Facebook'
+    ],
+    [
+        'href' => '',
+        'src' => 'assets/linkedin.png',
+        'alt' => 'Linkedin'
+    ],
+];
+
+?>
+
+
+
+
 <section class="flex gap-x-3">
         
 
@@ -11,16 +36,15 @@
 
 
                 <ul class="flex space-x-3 mt-4  font-medium">
-                    <li>
-                        <a target="_blank" class="hover:underline  hover:animate-ping"><img class="h-8" src="assets/twitter.png" alt="Twitter logo"></a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="" class="hover:underline hover:animate-ping"><img class="h-8" src="assets/facebook.png" alt="Facebook"></a>
-                    </li>
-                    <li>
-                        <a target="_blank" class="hover:underline hover:animate-ping"><img class="h-8" src="assets/linkedin.png" alt="Linkedin"></a>
-                    </li>
+                     <?php foreach ($items as $item): ?>
+
+                         <li>
+                             <a target="_blank" href="<?= $item['href'] ?>" class="hover:underline  hover:animate-ping"><img class="h-8" src="<?= $item['src'] ?>" alt="<?= $item['alt'] ?>"></a>
+                         </li>
+
+                     <?php endforeach; ?>
                 </ul>
+
           
         </div>
     
