@@ -21,18 +21,21 @@ $projects = [
         'description' => 'Meu primeiro portfólio escrito em PHP',
         'isFinished' => true,
         'date' => 2024,
+        'stack'=>['PHP','JS','CSS','HTML']
     ],
     (object) [
         'name' => 'Site de Compras',
         'description' => 'Um site para compra de produtos online',
         'isFinished' => false,
         'date' => 2023,
+        'stack'=>['NEXTJS','NODE','TAILWIND','SQL']
     ],
     (object) [
         'name' => 'Blog Pessoal',
         'description' => 'Um blog para compartilhar minhas ideias e projetos',
         'isFinished' => true,
         'date' => 2023,
+        'stack'=>['PHP','JS','CSS','HTML']
     ],
 ];
 
@@ -49,7 +52,7 @@ $filteredProjects = array_filter($projects, function($project) {
 
 ?>
 
-<h1><?= $title ?></h1>
+<h1><?=$title; ?></h1>
 <p><?php echo $subTitle; ?></p>
 <p><?php echo $yearNow; ?></p>
 <hr>
